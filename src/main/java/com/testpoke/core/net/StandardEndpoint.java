@@ -9,17 +9,17 @@ public enum StandardEndpoint implements Endpoint {
     TRUST{
         @Override
         public String endpoint() {
-            return "https://api.testpoke.com/v2/access/tokens/trust";
+            return "http://dev.api.testpoke.com/v2/access/tokens/trust";
         }
     },
     REVOKE{
         @Override
         public String endpoint() {
-            return "https://api.testpoke.com/v2/access/tokens/revoke";
+            return "http://dev.api.testpoke.com/v2/access/tokens/revoke";
         }
     },
     SESSION{
-        final String flatEndpoint = "https://api.testpoke.com/v2/apps/$@/builds/$@/sessions";
+        final String flatEndpoint = "http://dev.api.testpoke.com/v2/apps/$@/builds/$@/sessions";
         String endpoint = "";
 
         @Override

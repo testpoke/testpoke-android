@@ -47,7 +47,7 @@ compile 'com.testpoke:testpoke-android:2.0.5'
 Change Log
 ----------
 
-For a complete changelog, please check it out [CHANGELOG.MD][1]
+For a complete change log, please check it out [Change Log][1]
 
 License
 -------
@@ -73,7 +73,8 @@ License
 [doc]: http://dev.testpoke.com/docs/overview
 
 
-[1]: https://github.com/testpoke/testpoke-android
+[1]: https://github.com/testpoke/testpoke-android/blob/master/CHANGELOG.MD
+
 
 
 

@@ -1,7 +1,11 @@
 ext{
     appcompatVersion: '23.1.1'
+    bintrayPluginVersion: '1.4'
+    mavenPluginVersion: '1.3'
 
     libs = [
             appcompat:"com.android.support:appcompat-v7:${appCompatVersion}",
+            bintrayPlugin:"com.jfrog.bintray.gradle:gradle-bintray-plugin:${bintrayPluginVersion}",
+            mavenPlugin:"com.github.dcendents:android-maven-gradle-plugin:${mavenPluginVersion}",
     ]
 }

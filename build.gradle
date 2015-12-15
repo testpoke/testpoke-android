@@ -82,5 +82,6 @@ allprojects {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
+    classpath libs.bintrayPlugin
+    classpath libs.mavenPlugin
 }

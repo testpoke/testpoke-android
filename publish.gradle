@@ -24,6 +24,7 @@ ext{
 
 
 apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 group = publishedGroupId
 version = libraryVersion
@@ -51,7 +52,7 @@ artifacts {
 
 // Maven Installer
 
-uploadArchives  {
+install  {
     repositories.mavenInstaller {
         // This generates POM.xml with proper parameters
         pom {

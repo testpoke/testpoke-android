@@ -1,0 +1,7 @@
+ext{
+    appcompatVersion: '23.1.1'
+
+    libs = [
+            appcompat:"com.android.support:appcompat-v7:${appCompatVersion}",
+    ]
+}

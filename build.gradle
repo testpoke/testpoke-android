@@ -1,6 +1,8 @@
 apply plugin: 'android-library'
 apply plugin: 'maven'
 apply plugin: 'signing'
+apply from: './libraries.gradle'
+apply from: './publish.gradle'
 
 
 buildscript {
@@ -42,8 +44,43 @@ android {
 }
 
 
+android.libraryVariants.all { variant ->
+    task("generate${variant.name}Javadoc", type: Javadoc) {
+        description "Generates Javadoc for $variant.name."
+        source = variant.javaCompile.source
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+        exclude(
+                '**/R.*',
+                '**/ia/**',
+                '**/$SchedulerService$Holder.java',
+                '**/BuildConfig.java',
+                '**/_KImp.java',
+                '**/_K.java',
+                '**/_KInjector.java',
+                '**/$_V.java',
+                '**/IA.java',
+                '**/KNULLS.java',
+                '**/P.java'
+        )
+        options {
+            encoding = 'UTF-8'
+            docEncoding = 'UTF-8'
+            charSet = 'UTF-8'
+        }
+    }
+}
+
+
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.4'
 }

@@ -91,6 +91,15 @@ install  {
     }
 }
 
+// For maven local deploy
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${System.properties['user.home']}/.m2/repository"
+        }
+    }
+}
+
 
 // Bintray
 Properties properties = new Properties()

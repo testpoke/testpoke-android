@@ -39,9 +39,7 @@ public final class JsonDecoder implements Decoder<Map<String, Object>, byte[]> {
         return result;
     }
 
-    /**
-     * Taken from http://stackoverflow.com/questions/21720759/jsonobject-to-map
-     */
+
     public static Map toMap(JSONObject object) throws JSONException {
         Map<String, Object> map = new HashMap<String, Object>();
 
@@ -62,9 +60,6 @@ public final class JsonDecoder implements Decoder<Map<String, Object>, byte[]> {
         return map;
     }
 
-    /**
-     * Taken from http://stackoverflow.com/questions/21720759/jsonobject-to-map
-     */
     public static List toList(JSONArray array) throws JSONException {
         List<Object> list = new ArrayList<Object>();
         for(int i = 0; i < array.length(); i++) {

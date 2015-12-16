@@ -54,6 +54,8 @@ Changes in version 2.0.5 (2015-12-15)
 - Adoption `aar` distribution mechanism in order to make the library public available at central
   repositories.
 - Changed `api-token` by `app-token` in xml SDK configuration
+- [Bug TPA1] - Solved, Background opened sessions aren't been closed properly 
+
  
 
 

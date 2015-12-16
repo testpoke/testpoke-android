@@ -17,9 +17,9 @@ class TokenValidator implements SettingsValidator {
             return true;
 //        Objects.requireNonNull(setting, EXCEPTION_CONFIG_MESSAGE);
 //        Objects.requireNonNull(setting.getOptions(), EXCEPTION_CONFIG_MESSAGE);
-//        Objects.requireNonNull(setting.getOptions().apiToken(), EXCEPTION_CONFIG_TOKEN_MESSAGE);
+//        Objects.requireNonNull(setting.getOptions().appToken(), EXCEPTION_CONFIG_TOKEN_MESSAGE);
 //
-//        String token = setting.getOptions().apiToken();
+//        String token = setting.getOptions().appToken();
 //        Pattern pattern = Pattern.compile(TOKEN_REGEX, Pattern.CASE_INSENSITIVE);
 //        Matcher matcher = pattern.matcher( token );
 //

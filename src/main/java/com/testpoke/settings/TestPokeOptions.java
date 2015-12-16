@@ -5,11 +5,11 @@ package com.testpoke.settings;
  */
 public abstract class TestPokeOptions implements Options {
 
-    public abstract String apiToken();
+    public abstract String appToken();
 
     public abstract int logLevel();
 
-    public abstract boolean isAPIDisabled();
+    public abstract boolean isDisabled();
 
 //    public abstract boolean reportLogcatAlerts();
 

@@ -25,8 +25,10 @@ final class XmlConfigLoader extends ConfigLoader {
     private static final String TAG_STACKTRACE = "stacktrace";
     private static final String TAG_DEVICE_CONFIG = "device-config";
 
-    private static final String ATTR_API_TOKEN = "api-token";
-    private static final String ATTR_API_DISABLED = "api-disabled";
+//    private static final String ATTR_API_TOKEN = "api-token";
+    private static final String ATTR_APP_TOKEN = "app-token";
+//    private static final String ATTR_API_DISABLED = "api-disabled";
+    private static final String ATTR_DISABLED = "disabled";
 //    private static final String ATTR_REPORT_LOGCAT_ALERTS = "report-lca"; //report-logcat-alerts="true"
     private static final String ATTR_LOG_LEVEL = "log-level";
     private static final String ATTR_AUTO_HANDLED = "auto-handled";
@@ -58,7 +60,7 @@ final class XmlConfigLoader extends ConfigLoader {
     public ConfigSettings createDirect(String appToken) {
         ConfigSettingsImp settings = new ConfigSettingsImp();
         TestPokeOptionsImp options = settings.getTestPokeOptions();
-        options.apiToken = appToken;
+        options.appToken = appToken;
         return settings;
     }
 
@@ -106,14 +108,14 @@ final class XmlConfigLoader extends ConfigLoader {
 
         Object value;
 
-        if (null != (value = parser.getAttributeValue(null, ATTR_API_DISABLED))) {
-            options.isAPIDisabled = new Boolean(value.toString());
-            if (options.isAPIDisabled)
+        if (null != (value = parser.getAttributeValue(null, ATTR_DISABLED))) {
+            options.isDisabled = new Boolean(value.toString());
+            if (options.isDisabled)
                 return false;
         }
 
-        if (null != (value = parser.getAttributeValue(null, ATTR_API_TOKEN))) {
-            options.apiToken = value.toString();
+        if (null != (value = parser.getAttributeValue(null, ATTR_APP_TOKEN))) {
+            options.appToken = value.toString();
         }
 
         if (null != (value = parser.getAttributeValue(null, ATTR_LOG_LEVEL))) {

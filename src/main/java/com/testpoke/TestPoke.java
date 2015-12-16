@@ -37,7 +37,7 @@ public final class TestPoke {
         Log.setLogLevel(settings.getOptions().logLevel());
         TP.i("Configured TestPoke SDK Logger Level to " + Log.getLogLevel());
 
-        if (settings.getOptions().isAPIDisabled()) {
+        if (settings.getOptions().isDisabled()) {
             TP.i("TestPoke SDK is Disabled.");
             return;
         }

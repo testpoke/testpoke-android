@@ -30,7 +30,7 @@ import java.util.List;
 
     @Override
     public boolean validate(ConfigSettings setting) throws ConfigSettingsException {
-        if (setting.getOptions().isAPIDisabled())
+        if (setting.getOptions().isDisabled())
             return false;
 
         boolean validated = true;

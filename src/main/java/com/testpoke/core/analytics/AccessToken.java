@@ -143,7 +143,7 @@ import java.util.Map;
             map2.put(Constants._tec489d1d, Constants._ca0b77378);
 
             Map<String, Object> map3 = new HashMap<String, Object>();
-            map3.put(Constants._pc67af788, TestPoke.getSettings().getOptions().apiToken());
+            map3.put(Constants._pc67af788, TestPoke.getSettings().getOptions().appToken());
             map3.put(Constants._p80f47968, $_U.$1(at.context));
             map3.put(Constants._ba8868af2, IA.k()._ba8868af2());
 

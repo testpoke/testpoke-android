@@ -42,6 +42,7 @@ public final class TestPoke {
             return;
         }
 
+
         TP.i("Initiating TestPoke SDK...");
 
         if (settings.getOptions().isSessionAutoHandled()) {
@@ -56,10 +57,17 @@ public final class TestPoke {
 
     public static void init(final Application app) {
         ConfigSettings config = ConfigSettings.loadDefaultSettings(app);
+
+        if( null != config && null == config.getOptions().appToken())
+            TP.e( "Null App Token Got, Please check for app-token field in xml config file" );
+
         init(app, config);
     }
 
     public static void init(final Application app, String appToken){
+        if( null == appToken ){
+            TP.e( "Null APP Token was provided to TestPoke" );
+        }
         ConfigSettings config = ConfigSettings.loadDefaultSettings(app, appToken);
         init(app, config);
     }

@@ -9,6 +9,7 @@ import android.os.Process;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.testpoke.core.Injectable;
+import com.testpoke.core.TPConfig;
 import com.testpoke.core.content.$_V;
 import com.testpoke.core.content.PersistenceProvider;
 import com.testpoke.core.content.PersistenceResolver;
@@ -404,6 +405,11 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
                     while (MAX_RETRY_INTENT >= currentRetry && !isDone && !skipThisSessionDueOnCrash(s)) {
                         boolean isRetrying = false;
                         try {
+
+                            if( TPConfig.DEBUG )
+                                TP.v( "Sending session "+s.uuid+" for bundle token "+s._ba8868af2  );
+
+
                             HttpResponse response = HttpRequest.executeHttpPost(endpoint, json.getBytes(charset), a,b);
                             int status = response.getStatusLine().getStatusCode();
                             if (200 == status) {
@@ -461,6 +467,11 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
             if ( (!TextUtils.isEmpty(s.uuid) && s.uuid.equals( IA.k().uuid() )) && !s.crashed) {
                 return;
             }
+
+            if(TPConfig.DEBUG)
+                TP.v( "Cleaning session "+s.uuid+" for bundle token "+s._ba8868af2  );
+
+
             resolver.delete($_V.V1.s, " uuid='" + s.uuid + "' ", null);
         }
 

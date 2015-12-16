@@ -11,9 +11,9 @@ import com.testpoke.settings.TestPokeOptions;
     /*package*/ private ConfigSettingsImp settings;
 
     /*package*/ int logLevel;
-    /*package*/ String apiToken;
+    /*package*/ String appToken;
     /*package*/ long sessionTimeout = 30000;
-    /*package*/ boolean isAPIDisabled = false;
+    /*package*/ boolean isDisabled = false;
 //    /*package*/ boolean reportLogcatAlerts = false;
 //    /*package*/ boolean isMonitorMemEnabled = false;
     /*package*/ boolean autoHandleSession = true;
@@ -28,8 +28,8 @@ import com.testpoke.settings.TestPokeOptions;
     }
 
     @Override
-    public String apiToken() {
-        return apiToken;
+    public String appToken() {
+        return appToken;
     }
 
     @Override
@@ -38,8 +38,8 @@ import com.testpoke.settings.TestPokeOptions;
     }
 
     @Override
-    public boolean isAPIDisabled() {
-        return isAPIDisabled;
+    public boolean isDisabled() {
+        return isDisabled;
     }
 //
 //    @Override

@@ -22,6 +22,7 @@ import com.testpoke.core.net.StandardEndpoint;
 import com.testpoke.core.util.Dump;
 import com.testpoke.core.util.log.TP;
 import org.apache.http.HttpResponse;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -52,6 +53,8 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
     private BlockingQueue<Object> sessions = new LinkedBlockingQueue<Object>();
     private ReentrantLock lock = new ReentrantLock();
 
+
+    final String[] affectedTables = {$_V.V1.l, $_V.V1.ev, $_V.V1.e, $_V.V1.c};
 
     private Dispatcher() {
     }
@@ -409,9 +412,14 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
                             if( TPConfig.DEBUG )
                                 TP.v( "Sending session "+s.uuid+" for bundle token "+s._ba8868af2  );
 
-
-                            HttpResponse response = HttpRequest.executeHttpPost(endpoint, json.getBytes(charset), a,b);
+                            final byte[] data = json.getBytes(charset);
+                            HttpResponse response = HttpRequest.executeHttpPost(endpoint, data , a,b);
                             int status = response.getStatusLine().getStatusCode();
+                            try{
+                                response.getEntity().consumeContent();
+                            }catch( Exception e) {
+                                Dump.printStackTraceCause(e);
+                            }
                             if (200 == status) {
                                 /**
                                  * Session was sent, cleaning not active session.
@@ -458,8 +466,6 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
         }
 
         public void cleanNotActiveSession(PersistenceResolver resolver, S s) {
-//            final String[] affectedTables = {$_V.V1.l, $_V.V1.a, $_V.V1.ev, $_V.V1.e, $_V.V1.c, $_V.V1.s};
-            final String[] affectedTables = {$_V.V1.l, $_V.V1.ev, $_V.V1.e, $_V.V1.c};
             for (String table : affectedTables) {
                 resolver.delete(table, " uuid='" + s.uuid + "' ", null);
             }

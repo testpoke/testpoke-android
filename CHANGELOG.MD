@@ -46,7 +46,7 @@ Changes in version 2.0.4 (2015-07-23)
 - [Issue #22] - Turn SDK to be idempotent on init
 
 
-Changes in version 2.0.5 (2015-12-15)
+Changes in version 2.0.5 (2015-11-15)
 --------------------------------------
 
 - Performance improvements sending remote data
@@ -54,7 +54,14 @@ Changes in version 2.0.5 (2015-12-15)
 - Adoption `aar` distribution mechanism in order to make the library public available at central
   repositories.
 - Changed `api-token` by `app-token` in xml SDK configuration
-- [Bug TPA1] - Solved, Background opened sessions aren't been closed properly 
+
+
+
+Changes in version 2.0.6 (2015-12-15)
+--------------------------------------
+
+- [Bug TPA1] - Fixed, Background opened sessions aren't been closed properly 
+- [Bug TPA5] - Fixed, Android httpclient hangs on repeated requests to the server on not response 
 
  
 

@@ -263,8 +263,7 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
                 entity.put("value", value);
 
                 Charset charset = Charset.forName("UTF-8");
-	 
-                if (!Constants.production.equals(IA.k()._ea8268b38())) {
+
                     byte[][] logs = Collector.collectLogs(resolver, s.uuid);
                     if (null != logs && 0 < logs.length) {
                         isSessionCandidateToBeSent = true;
@@ -281,7 +280,7 @@ final class Dispatcher implements SessionImp.StateReporter, Destroyable {
                         value.put("logs", jLogs);
 
                     }
-                }
+
 
                 /**
                  * Collecting Session Crash

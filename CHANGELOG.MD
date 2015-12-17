@@ -57,13 +57,15 @@ Changes in version 2.0.5 (2015-11-15)
 
 
 
-Changes in version 2.0.6 (2015-12-15)
+Changes in version 2.1.0 (2015-12-15)
 --------------------------------------
 
 - [Bug TPA1] - Fixed, Background opened sessions aren't been closed properly 
 - [Bug TPA5] - Fixed, Android httpclient hangs on repeated requests to the server on not response 
 - [Issue TPA2] - Fixed, Allow logs be sent into production environment
 - [Bug TPA3] - Fixed, Wrong datetime format reported for latest session not closed properly
+- Performance improvements packing local data
+
 
 
 

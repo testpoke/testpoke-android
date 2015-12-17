@@ -17,7 +17,7 @@ import com.testpoke.settings.ConfigSettingsException;
 
 public final class TestPoke {
 
-    private static final String version = "2.0.5";
+    private static final String version = "2.1.0";
 
     private static Application application;
     private static ConfigSettings settings;

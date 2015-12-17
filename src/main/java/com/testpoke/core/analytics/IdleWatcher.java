@@ -50,16 +50,17 @@ import com.testpoke.core.util.Tasks;
     @Override
     protected void performTask() {
 
-        synchronized (lock) {
-            if (0 == recurrentInterval)
-                return;
-        }
-
         if (0 == lazyLatestSaveCounter && isSessionAutoHandled)
             Latest.save(context);
 
         if (LIMIT_LAZY_LATEST_SAVE_PERIOD <= lazyLatestSaveCounter++)
             lazyLatestSaveCounter = 0;
+
+        synchronized (lock) {
+            if (0 == recurrentInterval)
+                return;
+        }
+
 
         SessionImp active = ((SessionImp) P.p().getActive(context));
 

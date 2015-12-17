@@ -32,7 +32,7 @@ public final class CloseOldestSession extends TaskEvent {
         if (TextUtils.isEmpty(oldest.uuid) || !oldest.handled )
             return;
 
-        TP.i("TestPoke is closing oldest unclosed session");
+        TP.i("TestPoke is closing oldest unclosed session "+oldest.uuid);
 
         PersistenceProvider provider = PersistenceProvider.getDefault(getContext());
         PersistenceResolver resolver = provider.getResolver();

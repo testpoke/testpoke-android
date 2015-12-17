@@ -6,13 +6,17 @@ import android.text.format.Time;
 import com.testpoke.TestPoke;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /*
  * Created by Jansel Valentin on 5/25/14.
  */
 
 final class Latest implements Serializable {
-    private static final Time current = new Time();
+    static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    private static Calendar calendar = GregorianCalendar.getInstance();
 
     final String uuid;
     final String time;
@@ -31,11 +35,18 @@ final class Latest implements Serializable {
 
     public static void save( Context context ){
         SharedPreferences prefs = context.getSharedPreferences( "com.testpoke.latest", Context.MODE_PRIVATE );
-        current.setToNow();
+
+        String time;
+        try{
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            time = format.format(calendar.getTime());
+        }catch ( Exception e){
+            time = calendar.getTime().toString();
+        }
 
         prefs.edit()
              .putString( "uuid", IA.k().uuid() )
-             .putString( "time",current.format3339(false) )
+             .putString( "time",time )
              .putBoolean( "handled", TestPoke.getSettings().getOptions().isSessionAutoHandled())
              .commit();
     }

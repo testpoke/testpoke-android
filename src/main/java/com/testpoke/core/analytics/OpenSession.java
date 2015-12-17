@@ -3,6 +3,7 @@ package com.testpoke.core.analytics;
 import android.content.ContentValues;
 import android.content.Context;
 import com.testpoke.TestPoke;
+import com.testpoke.core.TPConfig;
 import com.testpoke.core.content.$_V;
 import com.testpoke.core.content.PersistenceProvider;
 import com.testpoke.core.content.PersistenceResolver;
@@ -36,7 +37,7 @@ public final class OpenSession extends TaskEvent implements SessionImp.StateRepo
         if (null == active)
             return;
 
-        TP.d("TestPoke is opening new session");
+        TP.d("TestPoke is opening new session "+IA.k().uuid() );
 
         PersistenceResolver resolver = PersistenceProvider.getDefault(getContext()).getResolver();
 
@@ -56,7 +57,8 @@ public final class OpenSession extends TaskEvent implements SessionImp.StateRepo
         values.put(Constants._ade677c68, IA.k()._ade677c68());
         values.put(Constants._ba8868af2, IA.k()._ba8868af2());
 
-        resolver.updateOrInsert($_V.V1.s, Constants._ade677c68,values,"uuid='" + IA.k().uuid() + "'",null);
+
+        resolver.updateOrInsert($_V.V1.s, Constants._ade677c68, values, "uuid='" + IA.k().uuid() + "'", null);
         values.clear();
 
         active.reportState(this);

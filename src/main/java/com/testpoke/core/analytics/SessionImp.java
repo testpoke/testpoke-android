@@ -179,10 +179,10 @@ final class SessionImp implements com.testpoke.api.Session {
     }
 
     interface StateListener {
-        abstract void onStateChange(int state);
+        void onStateChange(int state);
     }
 
     interface StateReporter {
-        abstract int reportedState();
+        int reportedState();
     }
 }

@@ -48,7 +48,7 @@ public final class P extends SessionProvider {
                     active = new SessionImp(context);
                     active.touchOpenTime();
                     /**
-                     * go sync for the first time session creation, to be sure the first state reported to
+                     * Sync for the first time session creation, to be sure the first state reported to
                      * all session component is NEW not one that trust process or other process will report first
                      */
                     OpenSession openSession = new OpenSession(SimpleSchedulerWrapper.shared().getSchedulerBase(),context);
@@ -96,10 +96,7 @@ public final class P extends SessionProvider {
             active.touchOpenTime();
 
             SessionUtils.openSession(context, SimpleSchedulerWrapper.shared().getSchedulerBase(), -1);
-            /**
-             * Esta linea es necesaria, para la porpagacion rapida de la apertura de la session, debido a que el Scheduler puede tomarse un tiempo
-             * en ejecutar OpenSession, asi de ese modo, se propaga cuanto antes la apertura de la session
-             */
+
             reportPlaceboState(SessionImp.STATE_WEAK);
         } else {
             TP.w("Attempt to open new session failed due to active session is open");

@@ -99,11 +99,7 @@ public final class TPThread extends Thread implements AccessToken.OnAccessTokenL
             setReportedState(SessionImp.STATE_OPEN);
             TP.d("Application authenticated.!");
 
-            /**
-             * Begin memory monitor if and only if, is configured to start and network type is wify
-             *
-             * Delegated until feature will be implemented in the website
-             */
+
 //        if( TestPoke.getSettings().getOptions().isMonitorMemEnabled() ) {
 //            if( NetworkHelper.isWifi(context))
 //                scheduler.schedule(new MemoryMonitor(context));
@@ -132,12 +128,6 @@ public final class TPThread extends Thread implements AccessToken.OnAccessTokenL
 
                 if (trustedBegin || (null != active && active.wasCrashed()))
                     return;
-                /**
-                 * Esto es por propagacion rapida de una exception y una notificacion a la session actual de que
-                 * ha sido crasheada, puede darse el caso de que antes que este thread termien su trabajo de run(),
-                 * se propage una exception y la session actual sea notioficada de que ha sido crasheada, la notificacion vendria
-                 * por parte del CrashHook registrado.
-                 */
 
                 TP.i("Trusting application...");
                 trust();

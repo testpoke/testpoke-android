@@ -11,7 +11,7 @@ ext{
     siteUrl = 'https://testpoke.com'
     gitUrl = 'https://github.com/testpoke/testpoke-android'
 
-    libraryVersion = '2.1.0'
+    libraryVersion = '2.1.2'
 
     developerId = 'testpoke-dev'
     developerName = 'TestPoke Developers'

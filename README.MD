@@ -33,14 +33,14 @@ Using Maven
 <dependency>
   <groupId>com.testpoke</groupId>
   <artifactId>testpoke-android</artifactId>
-  <version>2.1.0</version>
+  <version>2.1.2</version>
 </dependency>
 
 ```
 
 or Gradle:
 ```groovy
-compile 'com.testpoke:testpoke-android:2.1.0'
+compile 'com.testpoke:testpoke-android:2.1.2'
 ```
 
 
